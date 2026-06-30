@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Pothole Detection</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="header">
+<h2>🚗 Smart Road Safety</h2>
+<p id="status">🟢 Safe Drive</p>
+<button onclick="toggleTheme()">🌙</button>
+</div>
+
+<div id="map"></div>
+
+<div class="panel">
+
+<div class="row">
+<input type="text" id="start" placeholder="Start">
+<input type="text" id="destination" placeholder="Destination">
+</div>
+
+<div class="row">
+<button onclick="startJourney()">Start Journey</button>
+<button onclick="startDetection()">Start Detection</button>
+</div>
+
+<div class="info">
+<p id="gps">Lat:-- Lon:--</p>
+<p id="distance">Distance: --</p>
+<p id="duration">Duration: --</p>
+</div>
+
+</div>
+
+<div id="alertBox" class="alert">
+🚨 Pothole Detected!
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
